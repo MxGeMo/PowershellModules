@@ -37,11 +37,13 @@
         [Switch]$NoData,
 
         [ValidateRange(1,9)]
-        [int]$DS=1
+        [int]$DS=1,
+        
+        [switch]$Date
     )
     Begin {
         [xml]$doc = Get-SPLListsConfig -Verbose:$False
-        foreach($id in ('Name', 'Title', 'GUID')) {
+        foreach($id in ('Name', 'Title', 'GUID', 'Oracle')) {
             $Node = $doc.SelectSingleNode(('/SharePointListsConfig/Lists/List[@{0}="{1}"]' -f $id, $List))
             if ($Node) {break}
         }
@@ -58,7 +60,7 @@
         }  
 
         $PrimaryKey=$node.Key
-        $Result.Fields = Get-SPLListFieldsNumbered -List $Node.GUID -DS $DS
+        $Result.Fields = Get-SPLListFieldsNumbered -List $Node.GUID -DS $DS -Date:$Date 
         
         $Result.Names = @{}
         if ($Result.Fields)

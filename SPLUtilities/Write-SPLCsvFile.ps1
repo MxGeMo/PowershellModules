@@ -25,6 +25,8 @@
             if ($Item) {
                 if ($item -is [String]) {
                     $del + ([String]$Item).Replace($del, $del+$del).Replace("`r"," ").Replace("`n"," ") + $del
+                } elseif ($item -is [DateTime]) {
+                    $Item.ToString('yyyy-MM-dd HH:mm:ss')
                 } else {
                     $Item.ToString()
                 }
@@ -46,6 +48,8 @@
                         'Id'    {$Item.LookupId;    break}
                         Default {$Item.LookupValue; break}
                     }
+                #} elseif ($Item -is [Int]) {
+                #    $Item
                 } else {
                     $Item
                 }

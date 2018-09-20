@@ -116,8 +116,16 @@ function Write-SPLListCode {
                 "("
                 foreach($Field in $Fields) {
                     if ($Field.ItemCase -lt 3) {$Delimiter=','} else {$Delimiter=''}
-                    if ($Field.Escape) {$Escape = ('"unesc(:{0})"' -f $Field.Oracle ) } else {$Escape=''}
-                    "    {0} {1}{2} --{3}" -f  $Field.Oracle.PadRight(32), $Escape, $Delimiter, $Field.Escape
+                    if ($Field.Type -eq "DateTime") {
+                        $Escape = ("`"to_date(:{0},'YYYY-MM-DD HH24:MI:SS')`"" -f $Field.Oracle) 
+                    } else {
+                        if ($Field.Escape -eq "1") {$Escape = ('"unesc(:{0})"' -f $Field.Oracle ) } else {$Escape=''}
+                    }
+                    if ($Escape) {
+                       "    {0} {1}{2}" -f  $Field.Oracle.PadRight(32), $Escape, $Delimiter
+                    } else {
+                       "    {0}{1} {2}" -f  $Field.Oracle,  $Delimiter, $Field.Type
+                    }
                 }
                 ")"
             Break}
