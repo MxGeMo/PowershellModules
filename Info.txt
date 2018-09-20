@@ -3,7 +3,7 @@ Import-Module 'F:\User\Max\OneDrive - mxgemo\PowerShell\Modules\SPLUtilities' -f
 Import-Module 'F:\User\Max\OneDrive - mxgemo\PowerShell\Modules\SPLUtilities2' -force -verbose
 Import-Module 'F:\User\Max\OneDrive - mxgemo\PowerShell\Modules\SPConnects' -force -verbose
 
-Test
+Test 2
 
 New-ModuleManifest -Path 'F:\User\Max\OneDrive - mxgemo\Powershell\Modules\SPConnects\SPConnects.psd1'`
     -Author 'Gerhard Morgenstein'`
