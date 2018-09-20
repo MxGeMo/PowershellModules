@@ -1,0 +1,1 @@
+[Environment]::SetEnvironmentVariable("PSModulePath", "E:\Share\Powershell\Modules", "User")

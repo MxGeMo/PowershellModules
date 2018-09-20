@@ -1,0 +1,77 @@
+Name                          MemberType   Definition                                                                                                
+----                          ----------   ----------                                                                                                
+AutoIndexed                   Property     bool AutoIndexed {get;}                                                                                   
+CanBeDeleted                  Property     bool CanBeDeleted {get;}                                                                                  
+Choices                       Property     string[] Choices {get;set;}                                                                               
+ClientSideComponentId         Property     guid ClientSideComponentId {get;set;}                                                                     
+ClientSideComponentProperties Property     string ClientSideComponentProperties {get;set;}                                                           
+Context                       Property     Microsoft.SharePoint.Client.ClientRuntimeContext Context {get;}                                           
+CustomFormatter               Property     string CustomFormatter {get;set;}                                                                         
+CustomFromJson                Method       bool CustomFromJson(Microsoft.SharePoint.Client.JsonReader reader), bool IFromJson.CustomFromJson(Micro...
+DefaultFormula                Property     string DefaultFormula {get;set;}                                                                          
+DefaultValue                  Property     string DefaultValue {get;set;}                                                                            
+DeleteObject                  Method       void DeleteObject()                                                                                       
+Description                   Property     string Description {get;set;}                                                                             
+DescriptionResource           Property     Microsoft.SharePoint.Client.UserResource DescriptionResource {get;}                                       
+Direction                     Property     string Direction {get;set;}                                                                               
+EditFormat                    Property     Microsoft.SharePoint.Client.ChoiceFormatType EditFormat {get;set;}                                        
+EnforceUniqueValues           Property     bool EnforceUniqueValues {get;set;}                                                                       
+EntityPropertyName            Property     string EntityPropertyName {get;}                                                                          
+Equals                        Method       bool Equals(System.Object obj)                                                                            
+FieldTypeKind                 Property     Microsoft.SharePoint.Client.FieldType FieldTypeKind {get;set;}                                            
+FillInChoice                  Property     bool FillInChoice {get;set;}                                                                              
+Filterable                    Property     bool Filterable {get;}                                                                                    
+FromBaseType                  Property     bool FromBaseType {get;}                                                                                  
+FromJson                      Method       void FromJson(Microsoft.SharePoint.Client.JsonReader reader), void IFromJson.FromJson(Microsoft.SharePo...
+GetHashCode                   Method       int GetHashCode()                                                                                         
+GetType                       Method       type GetType()                                                                                            
+Group                         Property     string Group {get;set;}                                                                                   
+Hidden                        Property     bool Hidden {get;set;}                                                                                    
+Id                            Property     guid Id {get;}                                                                                            
+Indexed                       Property     bool Indexed {get;set;}                                                                                   
+InternalName                  Property     string InternalName {get;}                                                                                
+IsObjectPropertyInstantiated  Method       bool IsObjectPropertyInstantiated(string propertyName)                                                    
+IsPropertyAvailable           Method       bool IsPropertyAvailable(string propertyName)                                                             
+JSLink                        Property     string JSLink {get;set;}                                                                                  
+Mappings                      Property     string Mappings {get;}                                                                                    
+NoCrawl                       Property     bool NoCrawl {get;set;}                                                                                   
+NrA                           NoteProperty int NrA=20                                                                                                
+NrD                           NoteProperty int NrD=4                                                                                                 
+ObjectVersion                 Property     string ObjectVersion {get;set;}                                                                           
+Path                          Property     Microsoft.SharePoint.Client.ObjectPath Path {get;}                                                        
+PinnedToFiltersPane           Property     bool PinnedToFiltersPane {get;set;}                                                                       
+ReadOnlyField                 Property     bool ReadOnlyField {get;set;}                                                                             
+RefreshLoad                   Method       void RefreshLoad()                                                                                        
+Required                      Property     bool Required {get;set;}                                                                                  
+Retrieve                      Method       void Retrieve(), void Retrieve(Params string[] propertyNames)                                             
+SchemaXml                     Property     string SchemaXml {get;set;}                                                                               
+SchemaXmlWithResourceTokens   Property     string SchemaXmlWithResourceTokens {get;}                                                                 
+Scope                         Property     string Scope {get;}                                                                                       
+Sealed                        Property     bool Sealed {get;set;}                                                                                    
+ServerObjectIsNull            Property     System.Nullable[bool] ServerObjectIsNull {get;}                                                           
+SetShowInDisplayForm          Method       void SetShowInDisplayForm(bool value)                                                                     
+SetShowInEditForm             Method       void SetShowInEditForm(bool value)                                                                        
+SetShowInNewForm              Method       void SetShowInNewForm(bool value)                                                                         
+ShowInFiltersPane             Property     Microsoft.SharePoint.Client.ShowInFiltersPaneStatus ShowInFiltersPane {get;set;}                          
+Sortable                      Property     bool Sortable {get;}                                                                                      
+StaticName                    Property     string StaticName {get;set;}                                                                              
+Tag                           Property     System.Object Tag {get;set;}                                                                              
+TargetName                    NoteProperty string TargetName=L1State                                                                                 
+Title                         Property     string Title {get;set;}                                                                                   
+TitleOrg                      NoteProperty string TitleOrg=L1State                                                                                   
+TitleResource                 Property     Microsoft.SharePoint.Client.UserResource TitleResource {get;}                                             
+ToString                      Method       string ToString()                                                                                         
+TypeAsString                  Property     string TypeAsString {get;set;}                                                                            
+TypeDisplayName               Property     string TypeDisplayName {get;}                                                                             
+TypeShortDescription          Property     string TypeShortDescription {get;}                                                                        
+TypedObject                   Property     Microsoft.SharePoint.Client.ClientObject TypedObject {get;}                                               
+Update                        Method       void Update()                                                                                             
+UpdateAndPushChanges          Method       void UpdateAndPushChanges(bool pushChangesToLists)                                                        
+UseName                       NoteProperty string UseName=L1State                                                                                    
+ValidateSetValue              Method       void ValidateSetValue(Microsoft.SharePoint.Client.ListItem item, string value)                            
+ValidationFormula             Property     string ValidationFormula {get;set;}                                                                       
+ValidationMessage             Property     string ValidationMessage {get;set;}                                                                       
+
+
+
+PS C:\Users\max> 

@@ -1,0 +1,12 @@
+﻿Disconnect-PnPOnline
+New-PnPList -Title 'List1' -Template GenericList
+Add-PnPField -DisplayName 'My Url' -InternalName MyUrl -Type URL -Id 32bd4806-c341-4867-8e77-7f874635c4bc -Group 'MyGroup'  -Required -ErrorAction Continue
+Add-PnPField -List $ListName -DisplayName "Key"    -InternalName L2Key    -Type Text   -AddToDefaultView -Required
+Add-PnPField -List $ListName -DisplayName "Status" -InternalName L2Status -Type Choice -AddToDefaultView -Required -Choices "Active","Inactive","Obsolete"
+Set-PnPDefaultColumnValues -List $ListName -Field L2Status -Value "Active"
+
+https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-pnp/sharepoint-pnp-cmdlets?view=sharepoint-ps
+https://docs.microsoft.com/en-us/sharepoint/dev/schema/field-element-list
+https://olafd.wordpress.com/2017/05/09/create-fields-from-xml-for-sharepoint-online
+https://www.c-sharpcorner.com/blogs/sharepoint-pnp-powershell-how-to-create-list-in-sharepoint-online-using-powershell
+https://docs.microsoft.com/en-us/powershell/module/sharepoint-pnp/connect-pnponline?view=sharepoint-ps#examples
