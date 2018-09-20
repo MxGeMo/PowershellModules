@@ -106,7 +106,7 @@ function Write-SPLListCode {
                         2 {$Type += ',' ; break}
                         3 {$Type += ');'; break}
                     }
-                    "   {0} {1} -- {2}" -f $Name.PadRight(31), $Type.PadRight(31), $Field.Type
+                    "   {0} {1} -- {2}" -f $Name.PadRight(31), $Type.PadRight(32), $Field.Type
                 }
             Break}
             'OracleLoader' {
