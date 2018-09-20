@@ -50,6 +50,10 @@ function Write-SPLListCode {
                     'VARCHAR2({0})' -f $Size
                     break
                 }      
+                "Note"           { 
+                    'VARCHAR2(4000)'
+                    break
+                }      
                 "DateTime"           { 
                     'DATE' 
                     break
@@ -110,7 +114,7 @@ function Write-SPLListCode {
                 }
             Break}
             'OracleLoader' {
-                "options (skip=1, silent=(DISCARDS))"
+                "options (skip=2, silent=(DISCARDS))"
                 "load data truncate"
                 "into table {0} fields terminated by ';' optionally enclosed by '`"'  trailing nullcols" -f $SpList.Oracle
                 "("
@@ -124,7 +128,7 @@ function Write-SPLListCode {
                     if ($Escape) {
                        "    {0} {1}{2}" -f  $Field.Oracle.PadRight(32), $Escape, $Delimiter
                     } else {
-                       "    {0}{1} {2}" -f  $Field.Oracle,  $Delimiter, $Field.Type
+                       "    {0}{1}" -f  $Field.Oracle,  $Delimiter
                     }
                 }
                 ")"
