@@ -6,7 +6,6 @@
             'Categories', 
             'CatPrepare',
             'RespMatrix', 
-            'RespMatrix2',
             'SupplierGroups',
             'SupplierGroupsOld',
             'PdmTypes',
@@ -23,7 +22,6 @@
         "Categories" 		{ $SubSite = "MasterData/Categories"; Break}
         "CatPrepare"        { $SubSite = "MasterData/Categories/Prepare"; Break}
         "RespMatrix"        { $SubSite = "MasterData/RM"; Break}
-        "RespMatrix2"       { $SubSite = "MasterData/RM2"; Break}
         "SupplierGroups"    { $SubSite = "MasterData/SupplierGroups"; Break}
         "SupplierGroupsOld" { $SubSite = "MasterData/RM2"; Break}
         "PdmTypes"          { $SubSite = "MasterData/PdmTypes"; Break}
