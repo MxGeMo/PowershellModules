@@ -74,7 +74,7 @@ function Connect-SPSite
                         $PasswordSecure = ConvertTo-SecureString -AsPlainText $Credential['secret'] -Force
                         $UseCredentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Credential['user'], $PasswordSecure
                         Write-Verbose ("Connect to {0} as User:{1}" -f $URL, $Credential['user'])
-                        Connect-PnPOnline -Url $URL -Credentials $UseCredentials 
+                        Connect-PnPOnline -Url $URL -Credentials $UseCredentials -Verbose
                     }
                 }
                 "AppId" 
@@ -83,7 +83,7 @@ function Connect-SPSite
                     if ($pscmdlet.ShouldProcess("$Url", ("Open with AppId {0} " -f $appId)))
                     {
                         Write-Verbose ("Connect to {0} with AppId {1}" -f $URL, $Credential['id'])
-                        Connect-PnPOnline -Url $URL -AppId $Credential['id'] -AppSecret $Credential['secret']
+                        Connect-PnPOnline -Url $URL -AppId $Credential['id'] -AppSecret $Credential['secret'] -Verbose
                     }
                 }
             }
@@ -93,7 +93,7 @@ function Connect-SPSite
             if ($pscmdlet.ShouldProcess("$Url", "Open with WebLogin"))
             {
                 Write-Verbose ("Connect to {0} -UseWebLogin" -f $URL)
-                Connect-PnPOnline -Url $URL -UseWebLogin
+                Connect-PnPOnline -Url $URL -UseWebLogin -Verbose
             }
         }
     }
