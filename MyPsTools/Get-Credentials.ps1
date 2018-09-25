@@ -50,41 +50,72 @@ function Get-Credentials
             if ($Names) 
             {
                 $Names | ForEach-Object { 
-                    $Name     = $_
-                    $FilePath = $FolderName + "\" + $Name + ".xml"
-                    if (!(Test-Path -Path $FilePath))
+                    $Name         = $_
+                    $registryPath = ("HKCU:\Software\{0}\Credentials\{1}" -f $env:UserName, $Name)
+                    $Type         =  (Get-ItemProperty $registryPath -ErrorAction SilentlyContinue).'(Default)'
+                    if ($Type)
                     {
-                        Write-Warning ("File '{0}' is not found" -f $FilePath)
-                    } 
-                    else 
-                    {
-                        if ($pscmdlet.ShouldProcess($_, 'Load'))
-                        {
-                            Write-Debug ("Process File '{0}'" -f $FilePath )
-                            [xml]$xdoc =  new-object System.Xml.XmlDocument
-                            $xdoc.load($FilePath)
-                            Write-Verbose ("Name is '{0}'" -f $xdoc.DocumentElement.Name)
-                            switch ($xdoc.DocumentElement.Name)
+                        if ($pscmdlet.ShouldProcess($_, 'Load from Registy'))
+                        {                        
+                            Write-Debug ("Process Registry '{0}'" -f $registryPath )
+                            $RegKey = Get-ItemProperty $registryPath
+                            switch ($Type)
                             {
-                                "Credentials" 
-                                { 
-                                    $MyCredentials[$xdoc.Credentials.URL] = @{
+                                "User" 
+                                {
+                                    $MyCredentials[$RegKey.Domain] = @{
                                         'typ'    = 'User'
-                                        'user'   = $xdoc.Credentials.UserName
-                                        'secret' = $xdoc.Credentials.Password
+                                        'user'   = $RegKey.ID
+                                        'secret' = (Decrypt-PasswordString $RegKey.Secret)
                                     }
                                     break
                                 }
-                                "AppCredentials" 
+                                "AppId" 
                                 { 
-                                    $MyCredentials[$xdoc.AppCredentials.URL] = @{
+                                    $MyCredentials[$RegKey.Domain] = @{
                                         'typ'    = 'AppId'
-                                        'id'     = $xdoc.AppCredentials.AppId
-                                        'secret' = $xdoc.AppCredentials.AppSecret
+                                        'id'     = $RegKey.ID
+                                        'secret' = (Decrypt-PasswordString $RegKey.Secret)
                                     }
                                     break
                                 }
-                            }              
+                        }    }          
+                    } else {
+                        $FilePath = $FolderName + "\" + $Name + ".xml"
+                        if (!(Test-Path -Path $FilePath))
+                        {
+                            Write-Warning ("File '{0}' is not found" -f $FilePath)
+                        } 
+                        else 
+                        {
+                            if ($pscmdlet.ShouldProcess($_, 'Load from file'))
+                            {
+                                Write-Debug ("Process File '{0}'" -f $FilePath )
+                                [xml]$xdoc =  new-object System.Xml.XmlDocument
+                                $xdoc.load($FilePath)
+                                Write-Verbose ("Name is '{0}'" -f $xdoc.DocumentElement.Name)
+                                switch ($xdoc.DocumentElement.Name)
+                                {
+                                    "Credentials" 
+                                    { 
+                                        $MyCredentials[$xdoc.Credentials.URL] = @{
+                                            'typ'    = 'User'
+                                            'user'   = $xdoc.Credentials.UserName
+                                            'secret' = $xdoc.Credentials.Password
+                                        }
+                                        break
+                                    }
+                                    "AppCredentials" 
+                                    { 
+                                        $MyCredentials[$xdoc.AppCredentials.URL] = @{
+                                            'typ'    = 'AppId'
+                                            'id'     = $xdoc.AppCredentials.AppId
+                                            'secret' = $xdoc.AppCredentials.AppSecret
+                                        }
+                                        break
+                                    }
+                                }              
+                            }
                         }
                     }
                 }

@@ -6,5 +6,5 @@
 . $PSScriptRoot\Check-Folder.ps1
 . $PSScriptRoot\Open-WindowsPowerShell.ps1
 . $PSScriptRoot\Format-XMLIndent.ps1
-
-
+. $PSScriptRoot\Decrypt-SecureString.ps1
+. $PSScriptRoot\Set-Credentials.ps1

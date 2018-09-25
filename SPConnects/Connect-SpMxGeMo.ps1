@@ -19,7 +19,7 @@
 	$SiteUrl += "/" + $SubSite
 	$SiteLoc += "\" + $SubSite.Replace("/","\")
     if ($pscmdlet.ShouldProcess("$SiteUrl", "Connect")){
-	    $Url = Connect-SPSite -Url $SiteUrl
+	    $Url = Connect-SPSite -Url $SiteUrl 
 	    Check-Folder $SiteLoc | Set-Location
         "Url $Url"
         "Loc $SiteLoc"
