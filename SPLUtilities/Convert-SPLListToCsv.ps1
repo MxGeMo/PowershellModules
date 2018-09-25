@@ -1,4 +1,4 @@
-﻿function Write-SPLCsvFile {
+﻿function Convert-SPLListToCsv {
     <#
             .SYNOPSIS 
             Get data of a sharepoint list            

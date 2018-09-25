@@ -87,8 +87,9 @@ FunctionsToExport = @(
     'Get-SPLListFieldsNumbered',
     'Get-SPLListData',
     'Write-SPLListCode',
-    'Write-SPLCsvFile',
-    'Set-SPLFieldReadOnly')
+    'Convert-SPLListToCsv',
+    'Set-SPLFieldReadOnly',
+    'Get-SPLUserCsv')
 
 # Aus diesem Modul zu exportierende Cmdlets. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Cmdlets vorhanden sind.
 CmdletsToExport = @()
